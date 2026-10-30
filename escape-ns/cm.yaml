@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: spike-escape-cm
+  namespace: default
+data:
+  escaped: "true"
