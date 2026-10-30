@@ -1,0 +1,22 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: sdl-prod
+resources:
+  - ../../base
+patches:
+  - target: {kind: Pipeline, name: sales-load}
+    patch: |-
+      - op: replace
+        path: /spec/schedule/cron
+        value: "0 3 * * *"
+      - op: add
+        path: /spec/runAs
+        value: pipeline-sales
+  - target: {kind: Pipeline, name: sales-report}
+    patch: |-
+      - op: replace
+        path: /spec/schedule/cron
+        value: "0 5 * * *"
+      - op: add
+        path: /spec/runAs
+        value: pipeline-sales

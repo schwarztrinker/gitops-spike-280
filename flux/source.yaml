@@ -1,0 +1,7 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata: {name: spike, namespace: gitops-spike}
+spec:
+  interval: 1m
+  url: https://github.com/schwarztrinker/gitops-spike-280
+  ref: {branch: main}

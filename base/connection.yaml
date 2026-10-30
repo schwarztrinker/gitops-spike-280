@@ -1,0 +1,14 @@
+apiVersion: stardelt.io/v1alpha1
+kind: Connection
+metadata:
+  name: crm-db
+spec:
+  type: postgresql
+  scope: group
+  ownerGroup: sales
+  config:
+    host: crm.internal.example
+    port: "5432"
+    database: crm
+  secret:
+    keys: [user, password]
