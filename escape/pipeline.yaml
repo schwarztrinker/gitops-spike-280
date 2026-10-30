@@ -1,0 +1,9 @@
+apiVersion: stardelt.io/v1alpha1
+kind: Pipeline
+metadata:
+  name: escape-load
+spec:
+  tasks:
+    - name: t
+      kind: sql
+      sql: SELECT 1
