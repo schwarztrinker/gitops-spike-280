@@ -15,16 +15,3 @@ spec:
       warehouse: sales
       sql: SELECT count(*) AS rows FROM ${catalog}.sales
       dependsOn: [load]
----
-apiVersion: stardelt.io/v1alpha1
-kind: Pipeline
-metadata:
-  name: sales-report
-spec:
-  schedule:
-    cron: "0 4 * * *"
-  tasks:
-    - name: report
-      kind: sql
-      warehouse: sales
-      sql: SELECT * FROM ${catalog}.sales
